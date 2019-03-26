@@ -1,4 +1,4 @@
-module Syntax where
+module Old.Syntax where
 
     type Var = String
     

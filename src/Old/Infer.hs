@@ -1,13 +1,12 @@
 {-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Infer where
+module Old.Infer where
 
 import Prelude hiding (foldr)
 
-import Type
-import Syntax
+import Old.Type
+import Old.Syntax
 
 import Control.Monad.State
 import Control.Monad.Except
@@ -50,7 +49,7 @@ extend (TypeEnv env) (x, s) = TypeEnv $ Map.insert x s env
 emptyTyenv :: TypeEnv
 emptyTyenv = TypeEnv Map.empty
 
-typeof :: TypeEnv -> Var -> Maybe Type.Scheme
+typeof :: TypeEnv -> Var -> Maybe Old.Type.Scheme
 typeof (TypeEnv env) name = Map.lookup name env
 
 class Substitutable a where
@@ -171,8 +170,7 @@ infer env ex = case ex of
     tv <- fresh
     inferPrim env [e1] ((tv `TArr` tv) `TArr` tv)
 
-  Op op e1 e2 -> do
-    inferPrim env [e1, e2] (ops op)
+  Op op e1 e2 -> inferPrim env [e1, e2] (ops op)
 
   Lit (LInt _)  -> return (nullSubst, typeInt)
   Lit (LBool _) -> return (nullSubst, typeBool)

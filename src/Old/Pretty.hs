@@ -1,7 +1,6 @@
-{-# Language TypeSynonymInstances #-}
 {-# Language FlexibleInstances #-}
 
-module Pretty (
+module Old.Pretty (
   ppscheme,
   pptype,
   ppexpr,
@@ -10,9 +9,9 @@ module Pretty (
   ppdecl
 ) where
 
-import Type
-import Syntax
-import Infer
+import Old.Type
+import Old.Syntax
+import Old.Infer
 import Prelude hiding ((<>))
 
 import Text.PrettyPrint

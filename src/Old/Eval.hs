@@ -1,11 +1,11 @@
-module Eval (
+module Old.Eval (
   runEval,
 
   TermEnv,
   emptyTmenv
 ) where
 
-import Syntax
+import Old.Syntax
 
 import Control.Monad.Identity
 import qualified Data.Map as Map

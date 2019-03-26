@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Parser (
+module Old.Parser (
   parseExpr,
   parseModule
 ) where
@@ -13,8 +13,8 @@ import qualified Text.Parsec.Token as Tok
 
 import qualified Data.Text.Lazy as L
 
-import Lexer
-import Syntax
+import Old.Lexer
+import Old.Syntax
 
 integer :: Parser Integer
 integer = Tok.integer lexer
