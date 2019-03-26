@@ -1,0 +1,42 @@
+library:
+  source-dirs: src
+tests:
+  hask-test:
+    source-dirs: test
+    main: Spec.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hask
+copyright: 2019 Author name here
+maintainer: example@example.com
+dependencies:
+- pretty
+- mtl
+- containers
+- parsec
+- text
+- base >= 4.7 && < 5
+name: hask
+version: 0.1.0.0
+extra-source-files:
+- README.md
+- ChangeLog.md
+author: Author name here
+github: githubuser/hask
+license: BSD3
+executables:
+  hask-exe:
+    source-dirs: app
+    main: Main.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hask
+description: Please see the README on GitHub at <https://github.com/githubuser/hask#readme>
+description: Please see the README on GitHub at <https://github.com/githubuser/hask#readme>
+description: Please see the README on GitHub at <https://github.com/githubuser/hask#readme>
