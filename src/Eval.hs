@@ -55,12 +55,11 @@ module Eval where
       If cond tr fl -> do
         br' <- eval env cond
         let VBool br = br'
-        if br == True
+        if br
         then eval env tr
         else eval env fl
     
-      Fix e -> do
-        eval env (App e (Fix e))
+      Fix e -> eval env (App e (Fix e))
     
     binop :: Binop -> Integer -> Integer -> Value
     binop Add a b = VInt $ a + b

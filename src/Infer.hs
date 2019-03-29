@@ -131,8 +131,7 @@ lookupEnv x = do
   (TypeEnv env) <- ask
   case Map.lookup x env of
       Nothing   ->  throwError $ UnboundVariable x
-      Just s    ->  do t <- instantiate s
-                       return t
+      Just s    ->  instantiate s
 
 letters :: [String]
 letters = [1..] >>= flip replicateM ['a'..'z']
